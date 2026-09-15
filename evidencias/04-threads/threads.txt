@@ -1,0 +1,20 @@
+EVIDÊNCIA — THREADS
+
+Comando:
+ps -L -p 8976
+
+A saída mostrou várias LWPs/threads associadas ao processo Firefox.
+Entre as threads observadas estavam:
+- Socket Thread
+- HTML5 Parser
+- JS Watchdog
+- Renderer
+- Compositor
+- ImageIO
+- DOM Worker
+
+/proc/8976/status:
+Threads: 83
+
+Interpretação:
+O Firefox é multithread. O processo é a instância do programa em execução, enquanto as threads são unidades de execução que pertencem ao processo e compartilham seus recursos.

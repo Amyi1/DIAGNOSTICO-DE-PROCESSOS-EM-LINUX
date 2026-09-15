@@ -1,0 +1,25 @@
+EVIDÊNCIA — ESTADO, RECURSOS, PRIORIDADE E NICE
+
+Estado inicial observado:
+8976  2174  Sl  19  0  2.4  2.5  /snap/firefox/8763/usr/lib/firefox/firefox
+
+Medições registradas:
+1º momento: CPU 2,4% | memória 2,5%
+2º momento: CPU 2,0% | memória 3,6%
+Outra coleta: CPU 3,9% | memória 6,7%
+
+STAT Sl:
+S = processo em espera (sleeping)
+l = processo com múltiplas threads
+
+Prioridade antes:
+PID 8976 | PRI 19 | NI 0
+
+renice 5 -p 8976
+8976 (process ID) old priority 0, new priority 5
+
+Depois:
+PID 8976 | PRI 14 | NI 5
+
+Interpretação:
+O consumo variou entre as coletas conforme a atividade do navegador. O nice passou de 0 para 5, diminuindo a prioridade relativa do processo na disputa por CPU.

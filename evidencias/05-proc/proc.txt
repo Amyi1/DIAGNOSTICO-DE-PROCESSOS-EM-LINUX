@@ -1,0 +1,29 @@
+EVIDÊNCIA — /proc/8976
+
+1) /proc/8976/status
+Estado: S
+PPid: 2174
+VmRSS: 151416 kB
+Threads: 83
+Cpus_allowed_list: 0-3
+Seccomp: 2
+
+2) /proc/8976/limits
+Max stack: 8388608 bytes (soft)
+Max processes: 7213
+Max open files: 65536 (soft) / 524288 (hard)
+
+3) /proc/8976/cmdline
+/snap/firefox/8763/usr/lib/firefox/firefox
+
+4) /proc/8976/io
+rchar: 527943090
+wchar: 293008983
+syscr: 309056
+syscw: 179650
+read_bytes: 401465344
+write_bytes: 291762176
+cancelled_write_bytes: 40706048
+
+Interpretação:
+status reúne informações gerais do processo; limits mostra limites de recursos; cmdline identifica o comando executado; io apresenta contadores de leitura e escrita.

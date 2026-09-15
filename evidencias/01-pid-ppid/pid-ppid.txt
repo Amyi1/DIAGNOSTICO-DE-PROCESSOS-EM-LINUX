@@ -1,0 +1,14 @@
+EVIDÊNCIA — PID E PPID
+
+pgrep firefox
+8976
+
+ps -o pid,ppid,stat,pri,ni,%cpu,%mem,cmd -p 8976
+PID   PPID STAT PRI NI %CPU %MEM CMD
+8976  2174 Sl    19  0  2.4  2.5 /snap/firefox/8763/usr/lib/firefox/firefox
+
+ps -p 2174 -o pid,ppid,stat,cmd
+2174  1706  Rsl  /usr/bin/gnome-shell --mode=ubuntu
+
+Interpretação:
+PID 8976 identifica o Firefox. O PPID 2174 identifica seu processo pai atual, que na coleta correspondia ao GNOME Shell.

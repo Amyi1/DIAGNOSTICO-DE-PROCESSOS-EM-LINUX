@@ -1,0 +1,38 @@
+EVIDÊNCIA — SIGSTOP, SIGCONT E SIGTERM
+
+COLETA COMPLEMENTAR
+O Firefox foi iniciado novamente para registrar o estado entre SIGSTOP e SIGCONT.
+Novo PID: 14693
+
+ANTES:
+ps -o pid,ppid,stat,pri,ni,%cpu,%mem,cmd -p 14693
+PID    PPID STAT PRI NI %CPU %MEM CMD
+14693  2174 Sl    19  0  27.8  5.1 /snap/firefox/8763/usr/lib/firefox/firefox
+
+SIGSTOP:
+kill -STOP 14693
+
+DEPOIS DO SIGSTOP:
+14693  2174 Tl    19  0  13.7  3.7 /snap/firefox/8763/usr/lib/firefox/firefox
+
+O T no STAT comprova que o processo ficou suspenso.
+
+SIGCONT:
+kill -CONT 14693
+
+DEPOIS DO SIGCONT:
+14693  2174 Rl    19  0  11.5  3.7 /snap/firefox/8763/usr/lib/firefox/firefox
+
+O processo deixou o estado T e voltou à execução.
+
+SIGTERM:
+kill -TERM 14693
+sleep 2
+ps -p 14693
+
+PID TTY          TIME CMD
+
+Como apenas o cabeçalho apareceu, o PID 14693 já não existia, comprovando o encerramento.
+
+Observação:
+Durante a consulta após o STOP houve uma tentativa com %men em vez de %mem, que retornou erro. O comando foi corrigido imediatamente e a consulta correta registrou o estado Tl.

@@ -1,0 +1,15 @@
+EVIDÊNCIA — ÁRVORE DE PROCESSOS
+
+Trecho observado com pstree -p:
+
+systemd(1)
+└── systemd(1706)
+    └── gnome-shell(2174)
+        └── firefox(8976)
+
+No Firefox também apareceram componentes/processos como:
+forkserver, RDD Process, Socket Process, Utility Process,
+Web Content e WebExtensions.
+
+Interpretação:
+A saída mostra a posição hierárquica do Firefox e os vários componentes relacionados ao navegador.
